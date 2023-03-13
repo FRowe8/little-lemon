@@ -1,0 +1,53 @@
+footer {
+  display: flex;
+}
+
+footer div {
+  flex: 1;
+}
+
+.doormat-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 5rem;
+  padding: 4rem;
+}
+
+.footer-logo {
+  width: 5rem;
+  height: auto;
+}
+
+.doormat-links {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  text-align: left;
+  list-style: none;
+}
+
+.doormat-links > li {
+  padding: 0.1rem 0;
+  justify-content: flex-start;
+}
+
+.doormat-links > li > a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 944px) {
+  .doormat-nav {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .doormat-links {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    text-align: center;
+    list-style: none;
+  }
+}

@@ -1,10 +1,15 @@
+import './Footer.css'
+import footerLogo from '../logo_footer.png'
+
 function Footer() {
   return (
-    <footer>
-      <img alt="logo"></img>
-      <>
+    <footer className="doormat-nav">
+      <figure>
+        <img className="footer-logo" src={footerLogo} alt="logo" />
+      </figure>
+      <section>
         <h3>Doormat Navigation</h3>
-        <ul>
+        <ul className="doormat-links">
           <li>
             <a href="/home">Home</a>
           </li>
@@ -24,10 +29,10 @@ function Footer() {
             <a href="/login">Login</a>
           </li>
         </ul>
-      </>
-      <>
+      </section>
+      <section>
         <h3>Contact</h3>
-        <ul>
+        <ul className="doormat-links">
           <li>
             <a href="/address">Address</a>
           </li>
@@ -38,10 +43,10 @@ function Footer() {
             <a href="/email">Email</a>
           </li>
         </ul>
-      </>
-      <>
+      </section>
+      <section>
         <h3>Social Media Links</h3>
-        <ul>
+        <ul className="doormat-links">
           <li>
             <a href="/address">Address</a>
           </li>
@@ -52,7 +57,7 @@ function Footer() {
             <a href="/email">Email</a>
           </li>
         </ul>
-      </>
+      </section>
     </footer>
   )
 }
