@@ -1,0 +1,105 @@
+.callToAction-section {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 5rem 4rem;
+  background: #495e57;
+}
+
+.callToAction-heading {
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  padding-left: 4rem;
+  flex-direction: column;
+  justify-content: center;
+}
+.callToAction-heading button {
+  width: 200px;
+  height: 60px;
+  background: #f4ce14;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.callToAction-image {
+  margin: 0 auto;
+  width: 300px;
+}
+.callToAction-image img {
+  width: 100%;
+  border-radius: 5%;
+  margin-bottom: -90px;
+  margin-top: 50px;
+  margin-left: -4rem;
+}
+
+.callToAction-heading h1 {
+  color: #f4ce14;
+  font-size: 3rem;
+  text-align: left;
+  margin: 0;
+}
+
+.callToAction-heading h2 {
+  margin: 0;
+  color: #edefee;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.callToAction-heading p {
+  margin-bottom: 4rem;
+  color: #ffffff;
+  max-width: 85%;
+}
+
+@media screen and (max-width: 944px) {
+  .callToAction-section {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 5rem 4rem;
+    background: #495e57;
+  }
+
+  .callToAction-heading {
+    padding: 2rem 0 0 0;
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .callToAction-image img {
+    width: 100%;
+    border-radius: 5%;
+    margin-left: 0;
+  }
+
+  .callToAction-heading button {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .callToAction-heading h1 {
+    text-align: center;
+  }
+
+  .callToAction-heading h2 {
+    text-align: center;
+  }
+
+  .callToAction-heading p {
+    text-align: center;
+    max-width: 100%;
+  }
+}

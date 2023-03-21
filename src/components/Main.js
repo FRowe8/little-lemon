@@ -1,11 +1,9 @@
 import './Main.css'
 
-function Main() {
+function Main(props) {
   return (
     <main>
-      <div className="container">
-        <p>Body</p>
-      </div>
+      <div className="container">{props.children}</div>
     </main>
   )
 }
