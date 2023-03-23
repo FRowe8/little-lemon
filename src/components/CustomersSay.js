@@ -43,16 +43,18 @@ function CustomersSay() {
           return (
             <div className="testimony-container" key={testimony.name}>
               <div>
-                <h3>Rating: {testimony.rating}/5</h3>
+                <h3 className="testimony-heading">
+                  Rating: {testimony.rating}/5
+                </h3>
               </div>
               <div>
                 <figure className="testimony-image">
                   <img alt={testimony.name} src={testimony.image} />
+                  <figcaption>{testimony.name}</figcaption>
                 </figure>
-                <p>{testimony.name}</p>
               </div>
-              <div>
-                <p>{testimony.reviewText}</p>
+              <div className="testimpony-description">
+                <p>"{testimony.reviewText}"</p>
               </div>
             </div>
           )
