@@ -52,12 +52,11 @@
   .aboutus-section {
     display: flex;
     flex-direction: column;
-    margin: 2rem 5rem 4rem;
+    margin: 2rem 6rem 4rem;
   }
 
   .aboutus-heading {
     padding: 2rem;
-    color: #edefee;
     margin: 0 auto;
     width: 95%;
     display: flex;
@@ -67,11 +66,55 @@
   }
 
   .aboutus-image {
-    margin: 1rem 1rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .aboutus-image img {
     border-radius: 5%;
     margin-left: 0;
+  }
+
+  .aboutus-image-top {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    position: relative;
+  }
+
+  .aboutus-image-bottom {
+    margin: 0 auto;
+    float: none;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .aboutus-image {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 200px;
+  }
+
+  .aboutus-image img {
+    border-radius: 5%;
+    margin-left: 0;
+    width: 190px;
   }
 }

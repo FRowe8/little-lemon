@@ -1,0 +1,60 @@
+.booking-section {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 5rem 4rem;
+  background: #495e57;
+}
+
+.booking-heading {
+  display: flex;
+  margin: 0 4rem;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+form {
+  margin: 0 auto;
+}
+
+.reservations-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.reservation-section {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+}
+
+.reservation-images {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.reservation-images img {
+  margin: 0 auto;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 5%;
+}
+
+.reservation-fields {
+  width: 500px;
+}
+
+.reservation-fields input {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  align-items: flex-end;
+  width: 250px;
+  margin: 0 auto;
+}
+.reservation-fields label {
+  font-weight: bold;
+  display: inline-flex;
+  width: 150px;
+  padding: 1rem 2rem 0 0;
+}
