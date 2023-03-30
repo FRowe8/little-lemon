@@ -2,13 +2,12 @@
   display: flex;
   flex-direction: row;
   margin: 2rem 5rem 4rem;
-  background: #495e57;
 }
 
 .booking-heading {
   display: flex;
   margin: 0 4rem;
-  padding: 2rem;
+
   flex-direction: column;
 }
 
@@ -57,4 +56,38 @@ form {
   display: inline-flex;
   width: 150px;
   padding: 1rem 2rem 0 0;
+}
+
+.register-section {
+  width: 800px;
+}
+
+.register-heading {
+  display: flex;
+  margin: 0 4rem;
+  flex-direction: column;
+}
+
+.register-fields-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.register-fields {
+  width: 500px;
+}
+
+.register-fields input {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  align-items: flex-end;
+  width: 200px;
+  margin: 0 auto;
+}
+.register-fields label {
+  font-weight: bold;
+  display: inline-flex;
+  width: 150px;
+  padding: 1rem 0.5rem 0 0;
+  justify-content: center;
 }
