@@ -4,8 +4,20 @@ import chefs from '../assets/Mario and Adrian b.jpg'
 import restaurant from '../assets/restaurant.jpg'
 import { useState } from 'react'
 
-function BookingForm() {
-  const [formInputs, setFormInputs] = useState({})
+function BookingForm({ availableTimes, dispatch, updateFormOptions }) {
+  const [formInputs, setFormInputs] = useState({
+    seatingOption: 'standard',
+    occasion: 'Birthday',
+  })
+
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value
+
+    // Dispatch action to update available times based on selected date
+    dispatch({ type: 'UPDATE_TIMES', payload: selectedDate })
+  }
+
+  let defaultDate = new Date().toISOString().slice(0, 10)
 
   const handleInputChange = (e) => {
     const target = e.target
@@ -13,11 +25,12 @@ function BookingForm() {
     const name = target.name
 
     setFormInputs({
+      ...formInputs,
       [name]: value,
     })
-  }
 
-  console.log(formInputs)
+    updateFormOptions({ ...formInputs })
+  }
 
   return (
     <form>
@@ -28,33 +41,33 @@ function BookingForm() {
         <div className="reservation-section">
           <section className="reservation-fields">
             <div>
-              <label htmlFor="booking-date" for="booking-date">
-                Date
-              </label>
-              <input id="booking-date" name="booking-date" type="date"></input>
+              <label htmlFor="bookingDate">Date</label>
+              <input
+                value={defaultDate}
+                min={defaultDate}
+                onChange={handleDateChange}
+                id="bookingDate"
+                name="bookingDate"
+                type="date"
+              ></input>
             </div>
             <div>
-              <label htmlFor="booking-time" for="booking-time">
-                Time
-              </label>
+              <label htmlFor="bookingTime">Time</label>
               <select
                 onChange={handleInputChange}
-                id="booking-time"
-                name="booking-time"
+                id="bookingTime"
+                name="bookingTime"
               >
-                <option>17:00</option>
-                <option>18:00</option>
-                <option>19:00</option>
-                <option>20:00</option>
-                <option>21:00</option>
-                <option>22:00</option>
+                {availableTimes &&
+                  availableTimes.map((time) => {
+                    return <option>{time}</option>
+                  })}
               </select>
             </div>
             <div>
-              <label htmlFor="diners" for="diners">
-                Number of Diners
-              </label>
+              <label htmlFor="diners">Number of Diners</label>
               <input
+                onChange={handleInputChange}
                 id="diners"
                 name="diners"
                 type="number"
@@ -63,10 +76,8 @@ function BookingForm() {
               ></input>
             </div>
             <div>
-              <label htmlFor="occasion" for="occasion">
-                Occasion
-              </label>
-              <select id="occasion">
+              <label htmlFor="occasion">Occasion</label>
+              <select onChange={handleInputChange} id="occasion">
                 <option value="birthday">Birthday</option>
                 <option value="engagement">Engagement</option>
                 <option value="anniversary">Anniversary</option>
@@ -74,22 +85,22 @@ function BookingForm() {
             </div>
             <div>
               <h3>Seating Options</h3>
-              <label htmlFor="standard" for="standard">
-                Standard
-              </label>
+              <label htmlFor="standard">Standard</label>
               <input
+                onChange={handleInputChange}
                 type="radio"
+                checked={formInputs.seatingOption === 'standard'}
                 id="standard"
-                name="seating_option"
+                name="seatingOption"
                 value="standard"
               ></input>
-              <label htmlFor="outside" for="outside">
-                Outside
-              </label>
+              <label htmlFor="outside">Outside</label>
               <input
+                onChange={handleInputChange}
                 type="radio"
+                checked={formInputs.seatingOption === 'outside'}
                 id="outside"
-                name="seating_option"
+                name="seatingOption"
                 value="outside"
               ></input>
             </div>
