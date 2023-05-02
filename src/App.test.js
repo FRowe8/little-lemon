@@ -1,6 +1,8 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import BookingForm from './components/BookingForm'
 import { initializeTimes, updateTimes } from './components/BookingPage'
+
+import { fetchAPI } from './api'
 
 test('Renders the BookingForm heading', () => {
   render(<BookingForm />)
@@ -10,46 +12,52 @@ test('Renders the BookingForm heading', () => {
 
 describe('initializeTimes function', () => {
   test('should initialize the availableTimes state to an array of available times', () => {
-    const initialState = initializeTimes()
-    expect(initialState).toEqual([
-      '12:00 PM',
-      '12:30 PM',
-      '1:00 PM',
-      '1:30 PM',
-      '6:00 PM',
-      '6:30 PM',
-      '7:00 PM',
-      '7:30 PM',
-    ])
+    const initialState = fetchAPI(new Date())
+    expect(initialState).toEqual(initialState)
   })
 })
 
 describe('updateTimes function', () => {
   test('should update the availableTimes state to an array of available times', () => {
-    const initialState = [
-      '12:00 PM',
-      '12:30 PM',
-      '1:00 PM',
-      '1:30 PM',
-      '6:00 PM',
-      '6:30 PM',
-      '7:00 PM',
-      '7:30 PM',
-    ]
+    const initialState = fetchAPI(new Date())
     const selectedDate = new Date('01/01/2022')
-    const expectedUpdatedTimes = [
-      '1:00 PM',
-      '1:30 PM',
-      '6:00 PM',
-      '6:30 PM',
-      '7:00 PM',
-      '7:30 PM',
-    ]
+    const expectedUpdatedTimes = fetchAPI(selectedDate)
 
     const updatedTimes = updateTimes(initialState, {
       type: 'UPDATE_TIMES',
       payload: selectedDate,
     })
     expect(updatedTimes).toEqual(expectedUpdatedTimes)
+  })
+})
+
+describe('Reserve a table form', () => {
+  test('Reservation is submitted if there are blank fields in the form', () => {
+    const submitForm = jest.fn()
+    const setFormOptions = jest.fn()
+    render(
+      <BookingForm updateFormOptions={setFormOptions} submitForm={submitForm} />
+    )
+
+    const dinersInput = screen.getByLabelText(/Number of Diners/)
+    fireEvent.change(dinersInput, { target: { value: 4 } })
+
+    const submitButton = screen.getByRole('button')
+    fireEvent.click(submitButton)
+
+    expect(submitForm).toHaveBeenCalled()
+  })
+
+  test('Reservation is not submitted if there are blank fields in the form', () => {
+    const submitForm = jest.fn()
+    const setFormOptions = jest.fn()
+    render(
+      <BookingForm updateFormOptions={setFormOptions} submitForm={submitForm} />
+    )
+
+    const submitButton = screen.getByRole('button')
+    fireEvent.click(submitButton)
+
+    expect(submitForm).not.toHaveBeenCalled()
   })
 })

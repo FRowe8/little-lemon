@@ -98,3 +98,36 @@ form {
   padding: 1rem 0.5rem 0 0;
   justify-content: center;
 }
+
+.error-text {
+  text-align: center;
+  color: red;
+  font-weight: 600;
+}
+
+.button-container {
+  display: flex;
+  margin: 2rem;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 150px;
+  height: 50px;
+  background: #f4ce14;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.submit-button:hover {
+  background: #495e57;
+  color: #fff;
+}

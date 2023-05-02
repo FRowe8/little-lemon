@@ -2,20 +2,13 @@ import './BookingPage.css'
 
 import BookingForm from './BookingForm'
 import { useState, useReducer } from 'react'
+import { fetchAPI, submitAPI } from '../api'
+import { useNavigate } from 'react-router-dom'
 
 export const initializeTimes = () => {
-  let defaultDate = new Date().toISOString().slice(0, 10)
+  let defaultDate = new Date()
 
-  return [
-    '12:00 PM',
-    '12:30 PM',
-    '1:00 PM',
-    '1:30 PM',
-    '6:00 PM',
-    '6:30 PM',
-    '7:00 PM',
-    '7:30 PM',
-  ]
+  return fetchAPI(defaultDate)
 }
 
 export const updateTimes = (state, action) => {
@@ -24,7 +17,6 @@ export const updateTimes = (state, action) => {
     case 'UPDATE_TIMES':
       const selectedDate = action.payload
       const newAvailableTimes = getAvailableTimesForDate(selectedDate)
-      console.log(newAvailableTimes)
       return newAvailableTimes
     default:
       return state
@@ -32,27 +24,32 @@ export const updateTimes = (state, action) => {
 }
 
 function getAvailableTimesForDate(date) {
-  console.log(date)
-  // TODO: get available times for the selected date
-  // This is where you would implement the logic to fetch available times
-  // based on the selected date from a database or API
-  return ['1:00 PM', '1:30 PM', '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM']
+  return fetchAPI(new Date(date))
 }
 
 function BookingPage() {
   const [formOptions, setFormOptions] = useState({})
+  const navigate = useNavigate()
 
   console.log(formOptions)
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes())
+
+  function submitForm(formData) {
+    const successfullySubmitted = submitAPI(formData)
+    console.log(formData)
+    if (successfullySubmitted) {
+      navigate('/reservation-confirmation', { state: { ...formData } })
+    }
+  }
 
   return (
     <div className="booking-section">
       <BookingForm
         updateFormOptions={setFormOptions}
         availableTimes={availableTimes}
+        submitForm={submitForm}
         dispatch={dispatch}
       />
-      {formOptions && formOptions.bookingDate}
       {/* <section className="register-section">
           <div className="register-heading">
             <h2>Sign in to collect Points</h2>
