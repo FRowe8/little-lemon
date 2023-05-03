@@ -1,0 +1,53 @@
+.booking-confirmation-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #495e57;
+  margin: 2rem 5rem;
+  border-radius: 20px;
+  color: #edefee;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.booking-details {
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  color: black;
+  font-weight: 500;
+}
+
+.home-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 150px;
+  height: 50px;
+  background: #f4ce14;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.home-button:hover {
+  background: #495e57;
+  color: #fff;
+  border: 1px solid #fff;
+}

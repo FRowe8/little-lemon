@@ -33,7 +33,9 @@ function Specials() {
     <section className="specials-section">
       <div className="specials-heading">
         <h2>Specials</h2>
-        <button>Online Menu</button>
+        <Link className="nav-link" to="/menu">
+          <button>Online Menu</button>
+        </Link>
       </div>
       <div className="specials">
         {specials.map((special) => {

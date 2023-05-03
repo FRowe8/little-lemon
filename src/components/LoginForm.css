@@ -1,0 +1,32 @@
+.register-section {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 944px) {
+  .register-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+  }
+
+  .register-fields-group {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .register-fields {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

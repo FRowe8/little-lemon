@@ -31,12 +31,10 @@ function BookingPage() {
   const [formOptions, setFormOptions] = useState({})
   const navigate = useNavigate()
 
-  console.log(formOptions)
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes())
 
   function submitForm(formData) {
     const successfullySubmitted = submitAPI(formData)
-    console.log(formData)
     if (successfullySubmitted) {
       navigate('/reservation-confirmation', { state: { ...formData } })
     }

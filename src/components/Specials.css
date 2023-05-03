@@ -28,6 +28,12 @@
   justify-content: center;
 }
 
+.specials-heading button:hover {
+  background: #495e57;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
 .specials {
   margin: 1rem 0 0 0;
   padding: 2rem 0 0 0;
@@ -36,6 +42,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  color: black;
+  font-weight: 500;
 }
 
 .specials-container {

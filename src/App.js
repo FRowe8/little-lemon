@@ -7,6 +7,9 @@ import Homepage from './components/Homepage'
 import Header from './components/Header'
 
 import Footer from './components/Footer'
+import Chicago from './components/Chicago'
+import Specials from './components/Specials'
+import LoginForm from './components/LoginForm'
 
 function App() {
   return (
@@ -19,7 +22,10 @@ function App() {
           path="/reservation-confirmation"
           element={<BookingConfirmation />}
         ></Route>
-        {/* <Route path="/contact" element={<Contact />}></Route> */}
+        <Route path="/about" element={<Chicago />}></Route>
+        <Route path="/order_online" element={<Specials />}></Route>
+        <Route path="/menu" element={<Specials />}></Route>
+        <Route path="/login" element={<LoginForm />}></Route>
       </Routes>
       <Footer />
     </>

@@ -143,24 +143,30 @@ function BookingForm({
             </div>
             <div>
               <h3>Seating Options</h3>
-              <label htmlFor="standard">Standard</label>
-              <input
-                onChange={handleInputChange}
-                type="radio"
-                checked={formInputs.seatingOption === 'standard'}
-                id="standard"
-                name="seatingOption"
-                value="standard"
-              ></input>
-              <label htmlFor="outside">Outside</label>
-              <input
-                onChange={handleInputChange}
-                type="radio"
-                checked={formInputs.seatingOption === 'outside'}
-                id="outside"
-                name="seatingOption"
-                value="outside"
-              ></input>
+              <label htmlFor="standard">
+                Standard
+                <input
+                  onChange={handleInputChange}
+                  type="radio"
+                  checked={formInputs.seatingOption === 'standard'}
+                  id="standard"
+                  name="seatingOption"
+                  value="standard"
+                  className="option-input"
+                ></input>
+              </label>
+              <label htmlFor="outside">
+                Outside
+                <input
+                  onChange={handleInputChange}
+                  type="radio"
+                  checked={formInputs.seatingOption === 'outside'}
+                  id="outside"
+                  name="seatingOption"
+                  value="outside"
+                  className="option-input"
+                ></input>
+              </label>
               {formErrors.seatingOption && (
                 <p className="error-text">Please Select a Seating Option</p>
               )}
